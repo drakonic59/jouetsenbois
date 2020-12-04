@@ -30,6 +30,11 @@ public class ScrollingActivity extends AppCompatActivity {
     private ArrayList<String> footerTitles;
     private HashMap<String, ArrayList<String>> footerDetails;
 
+    private ExpandableListView contentList;
+    private ExpandableListAdapter contentListAdapter;
+    private ArrayList<String> contentTitles;
+    private HashMap<String, ArrayList<String>> contentDetails;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,13 +52,27 @@ public class ScrollingActivity extends AppCompatActivity {
         carouselView.setImageListener(imageListener);
 
         footerList = findViewById(R.id.footerList);
+        contentList = findViewById(R.id.contentList);
 
         initFooterListData();
         footerTitles = new ArrayList<String>(footerDetails.keySet());
         footerListAdapter = new ExpandableFooterAdapter(this, footerTitles, footerDetails);
         footerList.setAdapter(footerListAdapter);
 
+        contentTitles = new ArrayList<String>(footerDetails.keySet());
+        contentListAdapter = new ExpandableFooterAdapter(this, contentTitles, footerDetails);
+        contentList.setAdapter(contentListAdapter);
+
         footerList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+
+                return false;
+            }
+        });
+
+        contentList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {

@@ -8,6 +8,7 @@
     tools:context=".ScrollingActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F5F2F2"
@@ -97,7 +98,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/relativeLayout"
-            app:layout_constraintVertical_bias="0.218"
+            app:layout_constraintVertical_bias="0.115"
             app:pageColor="#00000000"
             app:radius="6dp"
             app:slideInterval="3000"
@@ -115,7 +116,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_bias="0.015">
+            app:layout_constraintVertical_bias="0.007">
 
             <EditText
                 android:id="@+id/toSearch"
@@ -155,19 +156,30 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/carousel"
-            app:layout_constraintVertical_bias="0.054" />
+            app:layout_constraintVertical_bias="0.011" />
 
-        <View
-            android:id="@+id/preferedArticles"
-            android:layout_width="423dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+        <ExpandableListView
+            android:id="@+id/contentList"
+            android:layout_width="350dp"
+            android:layout_height="482dp"
+            android:layout_marginTop="284dp"
+            android:layout_marginBottom="274dp"
+            android:layout_weight="1"
+            android:clipToPadding="true"
+            android:foregroundGravity="center"
+            android:groupIndicator="@color/default_circle_indicator_page_color"
+            android:indicatorLeft="0dip"
+            android:indicatorRight="0dip"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_title" />
+            app:layout_constraintTop_toBottomOf="@+id/home_title"
+            app:layout_constraintVertical_bias="0.491"
+            tools:visibility="visible" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -232,12 +244,18 @@
                 android:text="Vous pouvez vous désinscrire à tout moment. Pour nous contacter vous trouverez nos informations dans les conditions générales."
                 android:textColor="#000000" />
 
-            <include
-                layout="@layout/content_scrolling"
-                android:layout_width="match_parent"
+            <ExpandableListView
+                android:id="@+id/footerList"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="10"
-                android:overScrollMode="ifContentScrolls" />
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:clipToPadding="true"
+                android:foregroundGravity="center_horizontal"
+                android:groupIndicator="@color/default_circle_indicator_page_color"
+                android:indicatorLeft="0dip"
+                android:indicatorRight="0dip"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/textView4"

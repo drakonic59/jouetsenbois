@@ -90,7 +90,6 @@ public class ExpandableFooterAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.group);
         listTitleTextView.setTypeface(null, Typeface.BOLD);
         listTitleTextView.setText(listTitle);
-        listTitleTextView.setBackgroundColor(Color.WHITE);
 
         return convertView;
     }
